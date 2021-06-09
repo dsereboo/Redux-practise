@@ -1,5 +1,4 @@
 import {connect } from "react-redux"
-import{addUser} from "./Store/usersActions"
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -53,13 +52,5 @@ function App(props) {
 }
 
 
-  const mapStateToProps=(state)=>(
-    {users: state}
-  )
-
-  const mapDispatchToProps={
-    /* same as addUser since they both have the same reference name*/
-    addUser: addUser
-  }
     
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
