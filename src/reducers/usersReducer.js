@@ -9,14 +9,6 @@ const initialUsers={
 
 const usersReducer=(state=initialUsers, action)=>{
     switch(action.type){
-        case "ADD_USER":
-           // itemId=Math.floor(Math.random()*100).toString()
-            const user={
-                name: action.payload.name,
-                age: action.payload.age,
-                grade: action.payload.grade,
-            }
-            return {...state, users:[...state.users, user]}
         default:
             return state;
 
