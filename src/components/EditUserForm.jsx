@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import {Form,Button} from "react-bootstrap"
-import editUser from "../actions/userActions"
+import {editUser} from "../actions/userActions"
+import {connect} from "react-redux"
 
 const EditUserForm=(props)=>{
     const[user, setUser]=useState({
@@ -43,4 +44,7 @@ const EditUserForm=(props)=>{
         </Form>
     )
 }
-export default EditUserForm
+
+
+const mapDispatchToProps={ editUser:editUser}
+export default connect(null, mapDispatchToProps)(EditUserForm)

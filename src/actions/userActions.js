@@ -4,3 +4,20 @@ export function addUser(newUser){
         payload:newUser,
     }
 }
+
+
+export function editUser(updatedUser){
+    return{
+        type:"EDIT_USER",
+        payload: updatedUser,
+    }
+}
+
+export function deleteUser(userId){
+    return{
+        type:"DELETE_USER",
+        payload: userId,
+    }
+}
+
+

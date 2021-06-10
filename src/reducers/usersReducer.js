@@ -9,6 +9,11 @@ const usersReducer=(state=initialUsers, action)=>{
         case "ADD_USER":
             console.log(action.payload)
             return{...state, users:[...state.users, action.payload]};
+        case "DELETE_USER":
+            let id=action.payload
+            let undeletedUsers=state.users.filter((user)=>user.id!==id)
+            return{users: undeletedUsers}
+           
         default:
             return state;
 
