@@ -18,7 +18,7 @@ const AddUserForm=(props)=>{
         event.preventDefault()
         user.id=Math.floor(Math.random()*100).toString()
         props.addNewUser(user)
-        
+        setUser()
     }
 
 

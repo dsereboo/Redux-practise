@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AddUserForm from './components/AddUserForm';
-import {addUser,deleteUser} from "./actions/userActions"
+import {deleteUser} from "./actions/userActions"
 import {connect} from "react-redux"
 import { useState } from 'react';
 import Users from './components/Users';
@@ -23,10 +23,10 @@ function App(props) {
   }
 
   const editUser=(id, updatedUser)=>{
-    setUsers( 
-      users.map(user=> user.id ===id? updatedUser: user)
-    )
-    console.log("Clicked")
+    //setUsers( 
+      //users.map(user=> user.id ===id? updatedUser: user)
+    //)
+    props.editUser(updatedUser)
   }
   
 

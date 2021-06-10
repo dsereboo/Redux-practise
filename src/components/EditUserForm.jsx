@@ -13,12 +13,12 @@ const EditUserForm=(props)=>{
 
     const handleChange=(event)=>{
         setUser({...user, [event.target.name]:event.target.value}) 
-        console.log(user)
+     
     }
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        props.editUser(user.id, user)
+        props.editUser(user)
         props.handleClose()
     }
        
