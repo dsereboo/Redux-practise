@@ -1,5 +1,8 @@
 import React, { useState} from "react"
 import { Form, Button } from "react-bootstrap"
+import {addUser} from "../actions/userActions"
+import {connect} from "react-redux"
+import Users from "./Users"
 
 const AddUserForm=(props)=>{
     const[user, setUser]=useState({
@@ -13,7 +16,7 @@ const AddUserForm=(props)=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        props.addUser(user)
+        props.addNewUser(user)
         setUser()
     }
 
@@ -36,4 +39,7 @@ const AddUserForm=(props)=>{
         </Form>
     )
 }
-export default AddUserForm
+
+
+const mapDispatchToProps={ addNewUser: addUser}
+export default connect(null, mapDispatchToProps)(AddUserForm)

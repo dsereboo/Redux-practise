@@ -1,24 +1,19 @@
-import {connect } from "react-redux"
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AddUserForm from './components/AddUserForm';
+import {addUser} from "./actions/userActions"
 import { useState } from 'react';
 import Users from './components/Users';
 
 
 
 function App(props) {
-  const initalState=[
-    {id:"dsnkn768", name:"Daniel", age:"15", grade:"9"},
-    {id:"ds66n768", name:"Abena", age:"17", grade:"10"},
-    {id:"ds99n768", name:"Adwoa", age:"17", grade:"10"}
-  ]
-
-  const [users,setUsers]=useState(initalState)
+  const [users,setUsers]=useState([])
 
   const addUser=(user)=>{
-    props.addUser(user)
+    user.id=Math.floor(Math.random()*100).toString()
+    setUsers([...users, user])
   }
 
   const deleteUser=(id)=>{
