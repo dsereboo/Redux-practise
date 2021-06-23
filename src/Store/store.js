@@ -9,6 +9,7 @@ import firebase from "../config"
 //Using the combine method to put together all existent reducers and return as a single one
 const combinedReducers=combineReducers({
     users: usersReducer,
+    firestore: firestoreReducer,
 })
 
 //Initial state for application since data would now be read from outside the application
