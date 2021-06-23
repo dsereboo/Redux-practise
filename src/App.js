@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AddUserForm from './components/AddUserForm';
-import {deleteUser} from "./actions/userActions"
+//import {deleteUser} from "./actions/userActions"
 import {connect} from "react-redux"
 import { useState } from 'react';
 import Users from './components/Users';
@@ -13,20 +13,20 @@ function App(props) {
   const [users,setUsers]=useState([])
 
   const addUser=(user)=>{
-    user.id=Math.floor(Math.random()*100).toString()
+    //user.id=Math.floor(Math.random()*100).toString()
   }
 
   const deleteUser=(id)=>{
     //const undeletedUsers=users.filter(user=> user.id!==id)
     //setUsers(undeletedUsers)
-    props.deleteUser(id)
+    //props.deleteUser(id)
   }
 
   const editUser=(id, updatedUser)=>{
     //setUsers( 
       //users.map(user=> user.id ===id? updatedUser: user)
     //)
-    props.editUser(updatedUser)
+    //props.editUser(updatedUser)
   }
   
 
@@ -47,6 +47,6 @@ function App(props) {
   )
 }
 
-const mapDispatchToProps={deleteUser: deleteUser}
+const mapDispatchToProps={deleteUser: ""}
     
 export default connect(null, mapDispatchToProps)(App);

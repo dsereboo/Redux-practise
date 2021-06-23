@@ -1,8 +1,8 @@
 import React, { useState} from "react"
 import { Form, Button } from "react-bootstrap"
-import {addUser} from "../actions/userActions"
+//import {addUser} from "../actions/userActions"
 import {connect} from "react-redux"
-import Users from "./Users"
+import {addUser} from "../actions/userActions"
 
 const AddUserForm=(props)=>{
     const[user, setUser]=useState({
@@ -17,8 +17,8 @@ const AddUserForm=(props)=>{
     const handleSubmit=(event)=>{
         event.preventDefault()
         user.id=Math.floor(Math.random()*100).toString()
-        props.addNewUser(user)
-        setUser()
+        props.addUser(user)
+        
     }
 
 
@@ -41,6 +41,4 @@ const AddUserForm=(props)=>{
     )
 }
 
-
-const mapDispatchToProps={ addNewUser: addUser}
-export default connect(null, mapDispatchToProps)(AddUserForm)
+export default connect(null, {addUser})(AddUserForm)
