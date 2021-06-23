@@ -1,13 +1,13 @@
-const initialUsers={users:[
-    {id:"dsnkn768", name:"Daniel", age:"15", grade:"9"},
-    {id:"ds66n768", name:"Abena", age:"17", grade:"10"},
-    {id:"ds99n768", name:"Adwoa", age:"17", grade:"10"}]}
+const initialUsers={users:[]}
 
 
 const usersReducer=(state=initialUsers, action)=>{
     switch(action.type){
         case "ADD_USER":
             return{...state, users:[...state.users, action.payload]};
+        case "GET_USERS":
+            let users=action.payload
+            return{users: users};
         case "EDIT_USER":
             let EditId= action.payload.id
             let updatedUsers= state.users.map((user)=> user.id===EditId? action.payload:user)

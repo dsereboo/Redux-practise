@@ -19,11 +19,40 @@ export function deleteUser(userId){
     }
 }*/
 
+export const getUsers=()=>{
+    return(dispatch,state,{getFirestore})=>{
+      //async call to firebase to create project and return the result
+      const db=getFirestore() ;
+      //add data to firestore collection using the firestore object
+      db.collection('users').get()
+      .then(
+          (response)=>{
+              let users=[]
+              response.forEach(
+                  
+                  (item)=>
+                  {users.push(item.data())}
+              )
+              console.log(users)
+              dispatch({type:"GET_USERS", payload:users,}) 
+          }
+
+      )
+      .catch(
+          (err)=>{
+              //Log for an error
+              console.log(err)
+          }
+          ) 
+    
+    }
+}
+
 
 export const addUser=(user)=>{
     return(dispatch,state,{getFirestore})=>{
         //async call to firebase to create project and return the result
-        const db=new getFirestore() ;
+        const db=getFirestore() ;
         //add data to firestore collection using the firestore object
         db.collection('users').add(user)
         .then(
