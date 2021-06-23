@@ -4,13 +4,12 @@ import './App.css';
 import AddUserForm from './components/AddUserForm';
 //import {deleteUser} from "./actions/userActions"
 import {connect} from "react-redux"
-import { useState } from 'react';
 import Users from './components/Users';
 
 
 
 function App(props) {
-  const [users,setUsers]=useState([])
+  
 
   const addUser=(user)=>{
     //user.id=Math.floor(Math.random()*100).toString()
@@ -40,7 +39,7 @@ function App(props) {
           <AddUserForm addUser={addUser}/>
         </Col>
         <Col>
-          <Users userData={users} deleteUser={deleteUser} editUser={editUser}/>
+          <Users  deleteUser={deleteUser} editUser={editUser}/>
         </Col>
       </Row>
     </Container>
