@@ -12,15 +12,9 @@ const combinedReducers=combineReducers({
     firestore: firestoreReducer,
 })
 
-//Initial state for application since data would now be read from outside the application
-const initialStates={
-    users:[],
-}
-
 //Modifying our store to connect with firebase firestore
 export const store= createStore(
     combinedReducers, 
-    initialStates,
     //
     compose(
         //Note

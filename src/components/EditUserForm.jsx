@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import {Form,Button} from "react-bootstrap"
-//import {editUser} from "../actions/userActions"
+import {editUser} from "../actions/userActions"
 import {connect} from "react-redux"
 
 const EditUserForm=(props)=>{
@@ -18,7 +18,7 @@ const EditUserForm=(props)=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        //props.editUser(user)
+        props.editUser(user)
         props.handleClose()
     }
        
@@ -43,5 +43,5 @@ const EditUserForm=(props)=>{
 }
 
 
-const mapDispatchToProps={ editUser:""}
+const mapDispatchToProps={ editUser}
 export default connect(null, mapDispatchToProps)(EditUserForm)

@@ -13,12 +13,12 @@ const Users=(props)=>{
         []
     )
 
-    console.log(props.users)
+   console.log('usersatMap',props.users)
 
     return(
         <Container>
             <Row>
-                {props.users.users.map(user=>(
+                {props.users.map(user=>(
                     <User userInfo={user} key={user.id} deleteUser={props.deleteUser} editUser={props.editUser}/>
                 ))}
             </Row>
@@ -27,8 +27,9 @@ const Users=(props)=>{
 }
 
 const mapStateToProps=(state)=>{
+    //console.log(state)
     return{
-        users: state.users,
+        users: state.users.users,
     }
 }
 
