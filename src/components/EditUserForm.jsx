@@ -18,7 +18,7 @@ const EditUserForm=(props)=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        props.editUser(user)
+        props.editUser(user,user.id)
         props.handleClose()
     }
        

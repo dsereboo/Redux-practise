@@ -25,7 +25,7 @@ export const deleteUser=(userId)=>{
         //delet data from firestore collection using the firestore objcet
         db.collection("users").doc(userId).delete()
         .then( (response)=>{
-            dispatch({type:"DELETE_USER",payload:userId})
+            // dispatch({type:"DELETE_USER",payload:userId})
             
         })
         .catch(
@@ -43,10 +43,10 @@ export const editUser=(updatedUser,userId)=>{
         const db= getFirestore();
         //edit data from firestore collection using firestore object
         db.collection("users").doc(userId)
-            .set(updatedUser)
+            .update(updatedUser)
             .then(
                 ()=>{
-                    dispatch({type:"EDIT_USER", payload:updatedUser})
+                    // dispatch({type:"EDIT_USER", payload:updatedUser})
                     
                 }
             )
@@ -65,18 +65,16 @@ export const getUsers = () => {
     const db = getFirestore();
     //add data to firestore collection using the firestore object
     db.collection("users")
-      .get()
-      .then((response) => {
+      .onSnapshot((response) => {
         let users = [];
         response.forEach((item) => {
           users.push({ ...item.data(), id:item.id });
         });
         dispatch({ type: "GET_USERS", payload: users });
-      })
-      .catch((err) => {
+      }, (err) => {
         //Log for an error
         console.log(err);
-      });
+      })
   };
 };
 
@@ -89,7 +87,7 @@ export const addUser = (user) => {
       .add(user)
       .then(() => {
         //When async call is successful dispatch redux action
-        dispatch({ type: "ADD_USER", payload: user });
+        // dispatch({ type: "ADD_USER", payload: user });
       })
       .catch((err) => {
         //if async call fails, log to error log or some mechanism
