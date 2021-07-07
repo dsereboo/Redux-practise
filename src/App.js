@@ -5,6 +5,8 @@ import AddUserForm from './components/AddUserForm';
 //import {deleteUser} from "./actions/userActions"
 import {connect} from "react-redux"
 import Users from './components/Users';
+import Router from './Router';
+
 
 
 
@@ -30,19 +32,8 @@ function App(props) {
   
 
   return (
-    <Container>
-      <Row>
-        <h1> CRUD App</h1>
-      </Row>
-      <Row>
-        <Col md="4">
-          <AddUserForm addUser={addUser}/>
-        </Col>
-        <Col>
-          <Users  deleteUser={deleteUser} editUser={editUser}/>
-        </Col>
-      </Row>
-    </Container>
+     <Router/>
+    
   )
 }
 

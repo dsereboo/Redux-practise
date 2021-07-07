@@ -96,3 +96,5 @@ export const addUser = (user) => {
     //asynchronous call to firebase to create users and return result
   };
 };
+
+
