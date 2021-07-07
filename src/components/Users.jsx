@@ -10,10 +10,9 @@ const Users=(props)=>{
 
     useEffect(
         ()=>{props.getUsers()},
-        []
+        [props]
     )
 
-   console.log('usersatMap',props.users)
 
     return(
         <Container>

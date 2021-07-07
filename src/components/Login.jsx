@@ -1,7 +1,7 @@
-import React,{useState} from "react"
+import React,{useState,useEffect} from "react"
 import {Container, Row, Col,Card,Form, Button} from "react-bootstrap"
 import {Link, Redirect } from "react-router-dom"
-import { signIn } from "../actions/authActions"
+import { googleSignIn, signIn } from "../actions/authActions"
 import {connect} from "react-redux"
 
 
@@ -16,6 +16,14 @@ const Login=(props)=>{
     const handleChange=(event)=>{
         setDetails({...details, [event.target.name]:event.target.value})
     }
+
+    const handleSignIn=()=>{
+      props.googleSignIn()
+    }
+
+   /* useEffect(
+      ()=>{props.googleSignIn()},[props]
+    )*/
 
     if(!props.auth.isLoaded){
       return (<h1>Page is loading!...</h1>)
@@ -58,6 +66,7 @@ const Login=(props)=>{
                     Sign In
                   </Button>
                 </Form>
+                <Button className="button-padding" variant="light" onClick={handleSignIn} block>Sign in with Google <img src="https://img.icons8.com/fluent/24/000000/google-logo.png"/></Button>
               </Card.Body>
               <Card.Text className="text-center">Don't have an account?<Link to="/signUp"><p className="text-center">Sign Up here!</p></Link></Card.Text>
             </Card>
@@ -69,6 +78,7 @@ const Login=(props)=>{
 
 const mapDispatchToProps={
   signIn: signIn,
+  googleSignIn,
 }
 
 const mapStateToProps=(state)=>{
