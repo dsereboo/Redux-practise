@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react"
+import React,{useState} from "react"
 import {Container, Row, Col,Card,Form, Button} from "react-bootstrap"
 import {Link, Redirect } from "react-router-dom"
 import { googleSignIn, signIn } from "../actions/authActions"
@@ -66,7 +66,7 @@ const Login=(props)=>{
                     Sign In
                   </Button>
                 </Form>
-                <Button className="button-padding" variant="light" onClick={handleSignIn} block>Sign in with Google <img src="https://img.icons8.com/fluent/24/000000/google-logo.png"/></Button>
+                <Button className="button-padding" variant="light" onClick={handleSignIn} block>Sign in with Google <img alt="google" src="https://img.icons8.com/fluent/24/000000/google-logo.png"/></Button>
               </Card.Body>
               <Card.Text className="text-center">Don't have an account?<Link to="/signUp"><p className="text-center">Sign Up here!</p></Link></Card.Text>
             </Card>
