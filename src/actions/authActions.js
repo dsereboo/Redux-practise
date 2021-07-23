@@ -56,8 +56,7 @@ export const googleSignIn=()=>{
         firebase.auth().signInWithPopup(provider)
         .then(
             (result)=>{
-                let credential= result.credential
-                let token= credential.accessToken
+                // let credential= result.credential
                 let user = result.user
                 console.log(user)
             }
